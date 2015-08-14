@@ -16,6 +16,10 @@ Use vis.js timeline as slider control
 
 Custom interface example - Includes the usage of Maki Markers and Twitter Bootstrap.
 
+### [Example 3](http://leafletplayback.theoutpost.io/examples/example_3.html)
+
+Shows the ability to have markers orient themselves to the bearing of the track.
+
 ### [Virtual Fence Demo](http://virtualfence.theoutpost.io/)
 I began my work on LeafletPlayback in my web mapping class at [Oregon State University](http://cartography.oregonstate.edu/). My final project involved animating GPS tracks that triggered geo-fences. _Note: this may stop working on August 2015 when Geoloqui will discontinue their web services._
 
@@ -84,6 +88,19 @@ var playback = new L.Playback(map, geoJSON, onPlaybackTimeChange, options);
 
 * `marker` - Object or function with signature `(featureData)` that returns leaflet marker options, to extend `L.Playback.MoveableMarker`. Useful for custom icons. **Default: `{}`**.
 
+* `orientIcons` - Set `true` if you want icons to orient themselves on each tick based on the bearing towards their next location. **Default: `false`**.
+
+* `mouseOverCallback` - A function with signature `(event)` that will be sent events on 'mouseover' on each marker **Optional**.
+
+* `clickCallback` - A function with signature `(event)` that will be sent events on 'click' on each marker **Optional**.
+
+* `popups` - Set `true` if popups on markers are required. **Default: `false`**.
+
+* `labels` - Set `true` if labels on markers are required. Uses leaflet-markers (https://github.com/Leaflet/Leaflet.label) **Default: `false`**.
+
+* `staleTime` - Set time before a track is considered stale and faded out. **Default: `60*60*1000` (1 hour)**.
+
+* `fadeMarkersWhenStale` - Set `true` markers should hide when not yet present in time and fade out after staleTime has passed **Default: `false`**.
 
 ### playback#setData(geoJSON)
 
